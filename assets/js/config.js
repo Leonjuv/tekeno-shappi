@@ -37,6 +37,5 @@ window.CONFIG = {
     { nombre: 'Celulares', etiqueta: 'celulares', imagen: 'assets/img/cat-celulares.jpg' },
     { nombre: 'Laptops', etiqueta: 'laptops', imagen: 'assets/img/cat-laptops.jpg' },
     { nombre: 'Tablets', etiqueta: 'tablets', imagen: 'assets/img/cat-tablets.jpg' },
-    { nombre: 'Relojes inteligentes', etiqueta: 'relojes', imagen: 'assets/img/cat-relojes.jpg' },
   ],
 };

@@ -185,7 +185,7 @@
         console.error('Minisite Shappi:', err);
         mostrarAviso(
           'No pudimos cargar el catálogo',
-          'Inténtalo de nuevo en un momento, o entra directamente a la colección en Tekeno.'
+          'Inténtalo de nuevo en un momento, o entra directamente al catálogo en Tekeno.'
         );
       });
   }

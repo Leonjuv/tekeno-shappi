@@ -181,9 +181,9 @@ em { font-style: normal; color: var(--morado); }
 .aviso p { color: var(--gris); max-width: 520px; margin: 0 auto 20px; }
 
 /* ── Categorías ───────────────────────────────────────────── */
-.categorias { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.categorias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .categoria {
-  position: relative; display: flex; align-items: flex-end; min-height: 200px;
+  position: relative; display: flex; align-items: flex-end; min-height: 300px;
   border-radius: var(--radio-grande); overflow: hidden; text-decoration: none;
   background: var(--noche); color: #fff; padding: 20px;
 }
@@ -196,7 +196,7 @@ em { font-style: normal; color: var(--morado); }
 
 /* ── Qué es refurbished ───────────────────────────────────── */
 .foto-ancha { margin: 0 0 24px; border-radius: var(--radio-grande); overflow: hidden; background: var(--noche); }
-.foto-ancha img { width: 100%; height: clamp(220px, 32vw, 380px); object-fit: cover; }
+.foto-ancha img { width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; }
 
 .columnas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .bloque { border: 1px solid var(--borde); border-radius: var(--radio-grande); padding: 28px; background: #fff; }
@@ -235,7 +235,8 @@ em { font-style: normal; color: var(--morado); }
 .mostrar-movil { display: none; }
 
 @media (max-width: 1023px) {
-  .rejilla, .categorias { grid-template-columns: repeat(2, 1fr); }
+  .rejilla { grid-template-columns: repeat(2, 1fr); }
+  .categorias { grid-template-columns: repeat(3, 1fr); }
   .franja__lista { grid-template-columns: repeat(2, 1fr); }
   .columnas, .pasos { grid-template-columns: repeat(2, 1fr); }
 }
@@ -250,6 +251,7 @@ em { font-style: normal; color: var(--morado); }
   .cifras strong { font-size: 18px; }
   .cifras span { font-size: 12px; }
   .columnas, .pasos { grid-template-columns: 1fr; }
+  .categorias { grid-template-columns: 1fr; }
   .seccion__cabeza { flex-direction: column; align-items: flex-start; }
   .ocultar-movil { display: none; }
   .mostrar-movil { display: block; margin-top: 28px; }

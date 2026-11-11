@@ -237,11 +237,13 @@ em { font-style: normal; color: var(--morado); }
 .pasos p { color: rgba(255,255,255,.7); font-size: 15px; margin: 0; }
 
 /* ── Cierre ───────────────────────────────────────────────── */
-.cierre { padding: 72px 0; background: var(--fondo-suave); }
+.cierre { padding: 72px 0; background: var(--morado); color: #fff; }
 .cierre__caja { text-align: center; max-width: 720px; }
-.cierre h2 { font-size: clamp(24px, 3.2vw, 34px); }
-.cierre p { color: var(--gris); font-size: 18px; }
-.cierre .nota { font-size: 14px; color: var(--gris); margin-top: 20px; }
+.cierre h2 { font-size: clamp(24px, 3.2vw, 34px); color: #fff; }
+.cierre p { color: #fff; font-size: 18px; }
+.cierre .nota { font-size: 14px; color: rgba(255,255,255,.85); margin-top: 20px; }
+.cierre .boton { max-width: 100%; white-space: normal; text-align: center; }
+@media (max-width: 480px) { .cierre .boton--grande { padding: 16px 24px; font-size: 16px; } }
 
 /* ── Pie ──────────────────────────────────────────────────── */
 .pie { background: var(--noche); color: rgba(255,255,255,.7); padding: 40px 0 28px; }

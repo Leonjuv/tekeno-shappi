@@ -16,7 +16,7 @@ window.CONFIG = {
      lectura de productos. Es pública: puede ir en el repositorio.
      Mientras esté vacía, el sitio muestra el aviso de «próximamente»
      en lugar de la cuadrícula de productos.                       */
-  token: '',
+  token: 'cf77847e70c96acffa0d338565b7d651',
 
   /* Versión de la API de Shopify. Solo se cambia si Shopify retira
      esta versión (avisan con un año de antelación).               */
@@ -26,9 +26,13 @@ window.CONFIG = {
   pais: 'EC',
   idioma: 'ES',
 
-  /* Cuántos productos se muestran en el minisite. El resto se ve
-     en la colección completa de Tekeno.                           */
-  productos: 12,
+  /* Cuántos productos se muestran como máximo. Con 100 salen todos los
+     de la colección shappi de Tekeno, igual que en la tienda.      */
+  productos: 100,
+
+  /* Aviso «Importante» de cada tarjeta (pedido de Paul, 6 nov 2026).
+     Sale al pasar el ratón o al tocar la etiqueta roja.            */
+  nota: 'Los celulares y productos electrónicos de Shappi deben ser comprados por separado y sin mezclar con otros productos de Tekeno. Para más información, por favor contáctenos a info@tekeno.com.',
 
   /* Categorías destacadas. «etiqueta» filtra la colección por esa
      etiqueta de producto en Tekeno; si la dejas vacía, el enlace

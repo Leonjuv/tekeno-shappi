@@ -63,6 +63,8 @@
 
   var CAMION = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>';
 
+  var AVISO = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5"/><circle cx="12" cy="18" r=".6"/></svg>';
+
   /* ── Tarjeta ─────────────────────────────────────────────── */
   function tarjeta(producto) {
     var precio = producto.priceRange && producto.priceRange.minVariantPrice;
@@ -94,6 +96,12 @@
           (hayOferta ? '<span class="tarjeta__antes">' + dinero(antes.amount, antes.currencyCode) + '</span>' : '') +
         '</div>' +
         '<div class="tarjeta__envio">' + CAMION + 'Envío gratis</div>' +
+        (C.nota
+          ? '<span class="tarjeta__importante" role="button" tabindex="0" aria-expanded="false" aria-label="Importante: ' + escapar(C.nota) + '">' +
+              AVISO + 'Importante' +
+              '<span class="tarjeta__burbuja" role="tooltip">' + escapar(C.nota) + '</span>' +
+            '</span>'
+          : '') +
       '</a>';
   }
 
@@ -117,6 +125,27 @@
     rejilla.innerHTML = productos.map(tarjeta).join('');
     rejilla.setAttribute('aria-busy', 'false');
   }
+
+  /* ── «Importante»: la burbuja se abre al tocarla (móvil) sin abrir el producto ── */
+  function cerrarBurbujas(salvo) {
+    document.querySelectorAll('.tarjeta__importante.is-abierta').forEach(function (b) {
+      if (b !== salvo) { b.classList.remove('is-abierta'); b.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.tarjeta__importante');
+    if (!b) { cerrarBurbujas(null); return; }
+    e.preventDefault(); e.stopPropagation();
+    var abrir = !b.classList.contains('is-abierta');
+    cerrarBurbujas(b);
+    b.classList.toggle('is-abierta', abrir);
+    b.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+  }, true);
+  document.addEventListener('keydown', function (e) {
+    var b = e.target.closest && e.target.closest('.tarjeta__importante');
+    if (e.key === 'Escape') { cerrarBurbujas(null); return; }
+    if (b && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); b.click(); }
+  });
 
   /* ── Datos ───────────────────────────────────────────────── */
   var CONSULTA = '' +
